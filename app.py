@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# Create DB connection
+# Create DB connection using environment variables for security
 def create_connection():
     return mysql.connector.connect(
         host=os.environ.get("DB_HOST", "sql12.freesqldatabase.com"),
@@ -70,4 +70,5 @@ def delete_user(user_id):
     return jsonify({"message": "User deleted"})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))  # Use Render's dynamic port if set
+    app.run(host='0.0.0.0', port=port)
