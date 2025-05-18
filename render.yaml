@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: flask-mysql-api
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python app.py
+    envVars:
+      - key: DB_HOST
+        value: sql12.freesqldatabase.com
+      - key: DB_USER
+        value: sql12779564
+      - key: DB_PASS
+        value: JPaK1tx39y
+      - key: DB_NAME
+        value: sql12779564
